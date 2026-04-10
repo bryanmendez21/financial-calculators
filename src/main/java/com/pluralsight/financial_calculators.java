@@ -6,7 +6,7 @@ public class financial_calculators {
     public static void main(String[] args) {
         // Prompts
         Scanner data_catcher = new Scanner(System.in);
-        System.out.printf("(1): Mortgage Calculator \n(2): Compound Interest \n(3): Ordinary Annuity \nWhich calculator would you like to use: ", 1, 2, 3);
+        System.out.println("(1): Mortgage Calculator \n(2): Compound Interest \n(3): Ordinary Annuity \nWhich calculator would you like to use: ");
         int pick_calculator = data_catcher.nextInt();
 
         // calling method based on calculator picked
@@ -14,8 +14,10 @@ public class financial_calculators {
             // Asking for loan variables
             System.out.print("What is the principle/loan amount: ");
             double principle = data_catcher.nextInt();
+
             System.out.print("What is the interest rate: ");
             double interest_rate = data_catcher.nextDouble();
+
             System.out.print("How long is the loan in years: ");
             int loan_length = data_catcher.nextInt();
 
@@ -32,8 +34,10 @@ public class financial_calculators {
            // Asking for compound values
             System.out.print("What is the principle/initial deposit amount: ");
             double principle = data_catcher.nextInt();
+
             System.out.print("What is the interest rate: ");
             double interest_rate = data_catcher.nextDouble();
+
             System.out.print("How long will deposit earn interest in years: ");
             int earn_length = data_catcher.nextInt();
 
@@ -48,8 +52,10 @@ public class financial_calculators {
             // Asking for annuity values
             System.out.print("What is the monthly payout: ");
             double monthly_payout = data_catcher.nextInt();
+
             System.out.print("What is the interest rate: ");
             double interest_rate = data_catcher.nextDouble();
+
             System.out.print("How long will it take to pay in years: ");
             int pay_length = data_catcher.nextInt();
 
