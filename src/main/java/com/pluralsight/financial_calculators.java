@@ -11,7 +11,7 @@ public class financial_calculators {
 
         // calling method based on calculator picked
         if (pick_calculator == 1){
-            // asking for loan variables
+            // Asking for loan variables
             System.out.print("What is the principle/loan amount: ");
             double principle = data_catcher.nextInt();
             System.out.print("What is the interest rate: ");
@@ -28,10 +28,23 @@ public class financial_calculators {
             System.out.printf("Your monthly payment is: $%.2f \nYour total interest is: $%.2f" ,monthly_payment, total_interest);
 
         }
-       /* else if (pick_calculator == 2){
+       else if (pick_calculator == 2){
+           // Asking for compound values
+            System.out.print("What is the principle/initial deposit amount: ");
+            double principle = data_catcher.nextInt();
+            System.out.print("What is the interest rate: ");
+            double interest_rate = data_catcher.nextDouble();
+            System.out.print("How long will deposit earn interest in years: ");
+            int earn_length = data_catcher.nextInt();
 
+            // Returning these values to fv method
+            double ending_balance = fv(principle,interest_rate,earn_length);
+            // Earned interest logic
+            double earned_interest = ending_balance - principle;
+            //outcome
+            System.out.printf("Your ending balance is: $%.2f \nYou would have earned: $%.2f in interest" ,ending_balance,earned_interest);
         }
-        else if (pick_calculator == 3){
+        /* else if (pick_calculator == 3){
 
         }
         else {
@@ -47,7 +60,14 @@ public class financial_calculators {
         double length_of_month_rate = Math.pow(1 + monthly_rate,total_months); //
         // Formula M = p * ( i * ( 1 + i)^n / ( (1 + i)^n ) -1)
         return principle * ( monthly_rate * (length_of_month_rate)/ ((length_of_month_rate) -1) );
+    }
 
+    // Compound Interest Calculator
+    public static double fv(double principle, double interest_rate, int earn_length){
 
+        //variables
+        double annual_interest = 1.75 / 100;
+
+        return principle *(Math.pow(1+(annual_interest/365), (365 * earn_length)));
     }
 }
