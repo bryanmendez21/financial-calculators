@@ -20,8 +20,8 @@ public class financial_calculators {
             int loan_length = data_catcher.nextInt();
 
             double total_months = 12 * loan_length;
-            // returning these values to morgage method
-            double monthly_payment = morgage(principle,interest_rate,loan_length, total_months);
+            // returning these values to mortgage method
+            double monthly_payment = mortgage(principle,interest_rate,loan_length, total_months);
             // Total interest logic
             double total_interest = (monthly_payment * total_months) - principle;
             // Outcome
@@ -65,7 +65,7 @@ public class financial_calculators {
     }
 
     // Mortgage calculator
-    public static double morgage(double principle, double interest_rate, int loan_length, double total_months) {
+    public static double mortgage(double principle, double interest_rate, int loan_length, double total_months) {
         // Monthly interest rate
         double monthly_rate = (interest_rate/100) / 12; // interest divided by months in a year
         double length_of_month_rate = Math.pow(1 + monthly_rate,total_months); //
