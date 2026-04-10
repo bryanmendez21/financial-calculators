@@ -20,7 +20,7 @@ public class financial_calculators {
             int loan_length = data_catcher.nextInt();
 
             double total_months = 12 * loan_length;
-            // returning these values to the method
+            // returning these values to morgage method
             double monthly_payment = morgage(principle,interest_rate,loan_length, total_months);
             // Total interest logic
             double total_interest = (monthly_payment * total_months) - principle;
@@ -44,12 +44,23 @@ public class financial_calculators {
             //outcome
             System.out.printf("Your ending balance is: $%.2f \nYou would have earned: $%.2f in interest" ,ending_balance,earned_interest);
         }
-        /* else if (pick_calculator == 3){
+        else if (pick_calculator == 3){
+            // Asking for annuity values
+            System.out.print("What is the monthly payout: ");
+            double monthly_payout = data_catcher.nextInt();
+            System.out.print("What is the interest rate: ");
+            double interest_rate = data_catcher.nextDouble();
+            System.out.print("How long will it take to pay in years: ");
+            int pay_length = data_catcher.nextInt();
 
+            // Returning to pv method
+            double total_invested = pv(monthly_payout,interest_rate,pay_length);
+            // Outcome
+            System.out.printf("You would need to invest: $%.2f today",total_invested);
         }
         else {
             System.out.println("Pick from 1, 2 or 3");
-        }*/
+        }
 
     }
 
@@ -69,5 +80,18 @@ public class financial_calculators {
         double annual_interest = 1.75 / 100;
 
         return principle *(Math.pow(1+(annual_interest/365), (365 * earn_length)));
+    }
+
+    // Ordinary annuity
+    public static double pv(double monthly_payout,double interest_rate, int pay_length){
+
+        // Variables
+        double annual_interest = interest_rate/ 100;
+        double monthly_interest = annual_interest/12;
+        int pay_length_months = pay_length * 12;
+        double interest_per_month = Math.pow(1 + monthly_interest,pay_length_months);
+
+        //formula p = mpo *(1-(1/(1+r)^n)/r)
+        return monthly_payout *((1-(1 / interest_per_month))/ monthly_interest);
     }
 }
